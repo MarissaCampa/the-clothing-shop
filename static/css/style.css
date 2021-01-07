@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 html {
   font-size: 1rem;
 }
@@ -123,4 +124,131 @@ section .section-title {
 .card-body a {
     color: inherit; 
     text-align: center;  
+=======
+html {
+  font-size: 1rem;
+}
+
+body {
+  background-color: Gainsboro;
+}
+
+@include media-breakpoint-up(sm) {
+  html {
+    font-size: 1.2rem;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  html {
+    font-size: 1.4rem;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  html {
+    font-size: 1.6rem;
+  }
+}
+
+section {
+    padding: 20px 0;
+}
+
+section .section-title {
+    text-align: center;
+    color: #007b5e;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+}
+
+.container a {
+    color: inherit;
+}
+
+.card-body h4, h5 {
+  text-align: center;
+}
+
+#footer {
+    background: #393939 !important;
+}
+#footer h5{
+    padding-left: 10px;
+    border-left: 3px solid #eeeeee;
+    padding-bottom: 6px;
+    margin-bottom: 20px;
+    color: #ffffff;
+    text-align: left;
+}
+#footer a {
+    color: #ffffff;
+    text-decoration: none !important;
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+}
+#footer ul.quick-links li{
+    padding: 3px 0;
+/*    -webkit-transition: .5s all ease;
+    -moz-transition: .5s all ease;*/
+    transition: .5s all ease;
+}
+#footer ul.quick-links li:hover{
+  padding: 3px 0;
+  margin-left: 5px;
+  font-weight: 700;
+}
+#footer ul.quick-links li a i{
+  margin-right: 5px;
+}
+#footer ul.quick-links li:hover a i {
+  font-weight: 700;
+}
+
+@media (max-width:767px) {
+	#footer h5 {
+    padding-left: 0;
+    border-left: transparent;
+    padding-bottom: 0px;
+    margin-bottom: 10px;
+  }
+}
+
+
+.banner {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border: 1px solid Gainsboro;
+}
+
+.banner img {
+    object-fit: cover;
+    object-position: auto auto;
+}
+
+.product-list {
+    background-color: snow;
+    padding: 20px;
+} 
+
+.product-card {
+    border: 2px solid snow;
+/*    background-color: snow;
+    padding: 10px;  
+*/}
+
+.card-img-top img {
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+    object-position: auto auto;
+/*    background-repeat:no-repeat; 
+    background-size: cover; 
+*/}
+
+.card-body a {
+    color: inherit; 
+    text-align: center;  
+>>>>>>> main
 }
