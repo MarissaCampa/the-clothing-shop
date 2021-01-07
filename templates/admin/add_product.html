@@ -1,0 +1,197 @@
+{% extends "layout.html" %}
+
+{% block title %} Home Page {% endblock %}
+
+{% block navbar %}  
+    {% include 'includes/_navbar.html' %}
+{% endblock %}
+
+{% block main %}
+<script>
+    window.onload = function() {
+        $('cbDress:checkbox').removeAttr('checked');
+        $('cbHandbags:checkbox').removeAttr('checked');
+        $('cbShoes:checkbox').removeAttr('checked');
+        $('cbSweaters:checkbox').removeAttr('checked');
+        $('cbTops:checkbox').removeAttr('checked');
+
+        setActiveCategory();
+        console.log("Window Load ");
+    }
+
+    function setActiveCategory() {
+        gActiveCategory = document.getElementById("inputCategory").value;
+
+        document.getElementById("cbDress").style.display = 'none';
+        document.getElementById("cbHandbags").style.display = 'none';
+        document.getElementById("cbShoes").style.display = 'none';
+        document.getElementById("cbSweaters").style.display = 'none';
+        document.getElementById("cbTops").style.display = 'none';
+
+        if (gActiveCategory == "dress") {
+            document.getElementById("cbDress").style.display = 'block';
+        } else if (gActiveCategory == "handbags") {
+            document.getElementById("cbHandbags").style.display = 'block';            
+        } else if (gActiveCategory == "shoes") {
+            document.getElementById("cbShoes").style.display = 'block';            
+        } else if (gActiveCategory == "sweaters") {
+            document.getElementById("cbSweaters").style.display = 'block';            
+        } else if (gActiveCategory == "tops") {
+            document.getElementById("cbTops").style.display = 'block';            
+        } else {
+            document.getElementById("cbTops").style.display = 'block';   
+            gActiveCategory = "tops"         
+        }
+        console.log("Active Category: " + gActiveCategory);
+    }
+
+</script>
+<div id="page-wrapper" class="mx-auto my-5 border rounded" style="width: 70%; background-color: white;">
+    {% include 'includes/_flashmsg.html' %}
+    <div class="p-2 mb-4 bg-secondary text-light text-center"><h4><a href="/" style="color:inherit;">The Clothing Shop<a></h4></div>
+    <div style="padding-bottom: 5px; padding-left: 20px; position: relative; border-bottom: 1px solid #eeeeee;">
+        <h1 style="font-size: 18px; font-weight: bold; line-height: 18px;">Add Product</h1>
+    </div>
+    {% from 'includes/_formhelpers.html' import render_field %}
+    <form role="form" enctype="multipart/form-data" action="/admin_add_product" method="post" class="p-3" style="width:100%;" autocomplete="off">
+        <div class="form-group row">
+            <label for="inputPName" class="col-sm-3 col-form-label">Product Name:</label>
+            <div class="col-sm-9">{{render_field(form.pname, class="form-control", id="inputPName")}}</div>      
+        </div>
+        <div class="form-group row">
+            <label for="inputPrice" class="col-sm-3 col-form-label">Price:</label>
+            <div class="col-sm-9">{{render_field(form.price, class="form-control", id="inputPrice")}}</div>      
+        </div>
+        <div class="form-group row">
+            <label for="inputDescription" class="col-sm-3 col-form-label">Description:</label>
+            <div class="col-sm-9">{{render_field(form.description, class="form-control", id="inputDescription")}}</div>      
+        </div>
+        <div class="form-group row">
+            <label for="inputAvailable" class="col-sm-3 col-form-label">Available:</label>
+            <div class="col-sm-9">{{render_field(form.available, class="form-control", id="inputAvailable")}}</div>      
+        </div>
+        <div class="form-group row">
+            <label for="inputCategory" class="col-sm-3 col-form-label">Category:</label>
+            <div class="col-sm-9">{{render_field(form.category, class="form-control", id="inputCategory", onchange="setActiveCategory()")}}</div>  
+        </div>
+        <div class="row">
+            <label for="checkboxGroup" class="col-sm-3 col-form-label">Styles:</label>
+            <div class="form-group col-sm-9" id="checkboxGroup" >
+                
+                <div id="cbDress" class="form-check form-check-inline" style="display: block">
+                    <label class="checkbox-inline ml-2">
+                        <input type="checkbox" name="tops" value="casual"> Casual
+                    </label>
+                    <label class="checkbox-inline ml-2">
+                        <input type="checkbox" name="tops" value="elegant"> Elegant
+                    </label>
+                    <label class="checkbox-inline ml-2">
+                        <input type="checkbox" name="tops" value="colorful"> Colorful
+                    </label>
+                    <label class="checkbox-inline ml-2">
+                        <input type="checkbox" name="tops" value="color_dark"> Dark Colored
+                    </label>
+                    <label class="checkbox-inline ml-2">
+                        <input type="checkbox" name="tops" value="color_light"> Light Colored
+                    </label>
+                </div>
+
+                <div id="cbHandbags" class="form-check form-check-inline" style="display: none">
+                    <label class="checkbox-inline ml-2">
+                        <input type="checkbox" name="handbags" value="casual"> Casual
+                    </label>
+                    <label class="checkbox-inline ml-2">
+                        <input type="checkbox" name="handbags" value="elegant"> Elegant
+                    </label>
+                    <label class="checkbox-inline ml-2">
+                        <input type="checkbox" name="handbags" value="colorful"> Colorful
+                    </label>
+                    <label class="checkbox-inline ml-2">
+                        <input type="checkbox" name="handbags" value="chain"> Chain
+                    </label>
+                    <label class="checkbox-inline ml-2">
+                        <input type="checkbox" name="handbags" value="leather"> Leather
+                    </label>
+                    <label class="checkbox-inline ml-2">
+                        <input type="checkbox" name="handbags" value="designer"> Designer
+                    </label>
+                </div>
+
+                <div id="cbShoes" class="form-check form-check-inline" style="display: none">
+                    <label class="checkbox-inline ml-2">
+                        <input type="checkbox" name="shoes" value="casual"> Casual
+                    </label>
+                    <label class="checkbox-inline ml-2">
+                        <input type="checkbox" name="shoes" value="elegant"> Elegant
+                    </label>
+                    <label class="checkbox-inline ml-2">
+                        <input type="checkbox" name="shoes" value="leather"> Leather
+                    </label>
+                    <label class="checkbox-inline ml-2">
+                        <input type="checkbox" name="shoes" value="designer"> Designer
+                    </label>
+                    <label class="checkbox-inline ml-2">
+                        <input type="checkbox" name="shoes" value="color_dark"> Dark Colored
+                    </label>
+                    <label class="checkbox-inline ml-2">
+                        <input type="checkbox" name="shoes" value="color_light"> Light Colored
+                    </label>
+                </div>
+
+                <div id="cbSweaters" class="form-check form-check-inline" style="display: none">
+                    <label class="checkbox-inline ml-2">
+                        <input type="checkbox" name="sweaters" value="casual"> Casual
+                    </label>
+                    <label class="checkbox-inline ml-2">
+                        <input type="checkbox" name="sweaters" value="elegant"> Elegant
+                    </label>
+                    <label class="checkbox-inline ml-2">
+                        <input type="checkbox" name="sweaters" value="colorful"> Colorful
+                    </label>
+                    <label class="checkbox-inline ml-2">
+                        <input type="checkbox" name="sweaters" value="color_dark"> Dark Colored
+                    </label>
+                    <label class="checkbox-inline ml-2">
+                        <input type="checkbox" name="sweaters" value="color_light"> Light Colored
+                    </label>
+                </div>
+
+                <div id="cbTops" class="form-check form-check-inline" style="display: none">
+                    <label class="checkbox-inline ml-2">
+                        <input type="checkbox" name="tops" value="casual"> Casual
+                    </label>
+                    <label class="checkbox-inline ml-2">
+                        <input type="checkbox" name="tops" value="elegant"> Elegant
+                    </label>
+                    <label class="checkbox-inline ml-2">
+                        <input type="checkbox" name="tops" value="colorful"> Colorful
+                    </label>
+                    <label class="checkbox-inline ml-2">
+                        <input type="checkbox" name="tops" value="color_dark"> Dark Colored
+                    </label>
+                    <label class="checkbox-inline ml-2">
+                        <input type="checkbox" name="tops" value="color_light"> Light Colored
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">        
+            <label for="inputPCode" class="col-sm-3 col-form-label">Product Code:</label>
+            <div class="col-sm-9">{{render_field(form.pcode, class="form-control", id="inputPCode")}}</div>      
+        </div>
+        <div class="form-group row file">
+            <label for="customFile" class="col-sm-3 col-form-label">Select Image:</label>
+            <div class="col-sm-9">
+                <input type="file" class="form-control-file" required="required" id="customFile" name="picture">
+            </div>
+        </div>
+        <div style="text-align: center;">
+            <button type="submit" class="btn btn-info my-3" style="width: 100%;">Submit</button>
+        </div>
+    </form>
+</div>
+{% endblock %}
+
+{% block footer %}
+    {% include 'includes/_footer.html' %}
+{% endblock %}

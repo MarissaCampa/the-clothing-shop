@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %} Main Page {% endblock %}
+
+{% block navbar %}  
+	{% include 'includes/_navbar.html' %}
+{% endblock %}
+
+{% block main %}
+
+	<br><br>
+	<h1 style="text-align: center; color: blue;">
+	{% if session.username %}
+		Welcome, {{ session.username }}! </h1>
+	{% else %}
+		Welcome! 
+	{% endif %}
+	</h1>
+	<br><br>
+
+{% endblock %}
+
+{% block footer %}
+	{% include 'includes/_footer.html' %}
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+
+{% block title %} Home Page {% endblock %}
+
+{% block navbar %}  
+    {% include 'includes/_navbar.html' %}
+{% endblock %}
+
+{% block main %}
+<div class="container">
+    <div class="row">
+        <h2 class="my-4">Dashboard</h2>
+    </div>
+    <div class="row">
+        <div class="col-lg-3">
+            <div class="list-group">
+                <a href="/profile?uid={{session.uid}}" class="list-group-item">Profile</a>
+                <a href="/profile?uid={{session.uid}}&orders" class="list-group-item active">Order History</a>
+            </div>
+        </div>
+        <div class="col-lg-9">
+            {% include 'includes/_flashmsg.html' %}
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Img</th>
+                        <th scope="col">Product Name</th>
+                        <th scope="col">Qty</th>
+                        <th scope="col">Total Price</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Address</th>
+                        <th scope="col">Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for order in orders %}
+                    <tr>
+                        <td><a href="/tshirt?view={{order.pid}}">
+                            <img src="/static/image/product/{{order.category}}/{{order.picture}}" width="50"></a>
+                        </td>
+                        <td>{{order.pname}}</td>
+                        <td>{{order.quantity}}</td>
+                        <td>${{order.totalprice}}</td>
+                        <td>{{order.oname}}</td>
+                        <td>{{order.address}}</td>
+                        <td>{{order.ddate}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block footer %}
+    {% include 'includes/_footer.html' %}
+{% endblock %}
+
+

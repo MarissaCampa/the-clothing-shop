@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block title %} Register {% endblock %}
+
+
+{% block main %}
+
+{% for message in get_flashed_messages() %}
+<div class="alert alert-warning">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    {{ message }}
+</div>
+{% endfor %}
+
+<div class="mx-auto border rounded" style="width: 50%; background-color: white">
+    <div class="p-2 mb-4 bg-secondary text-light text-center"><h4><a href="/" style="color:inherit;">The Clothing Shop<a></h4></div>
+
+    <div style="padding-bottom: 5px; padding-left: 20px; position: relative; border-bottom: 1px solid #eeeeee;">
+        <h1 style="font-size: 18px; font-weight: bold; line-height: 18px;">Register</h1>
+    </div>
+
+    {% from 'includes/_formhelpers.html' import render_field %}
+    <form method="post" action="/register" class="p-3" style="width:100%;" autocomplete="off">
+        <div class="form-group">
+            <div>{{render_field(form.username, class="form-control")}}</div>
+            <div>{{render_field(form.password, class="form-control")}}</div>
+            <div>{{render_field(form.confirm, class="form-control") }}</div>
+        </div>
+        <div>
+            <button type="submit" name="register" value="Register" class="btn btn-success mt-2 mb-2" style="width:100%;"><b>Register</b></button>
+        </div>
+        <div style="text-align: right; font-size:11pt; margin-top:8px;color:#0088cc; text-decoration:none;">
+            <a href="/login">Already have an account?</a><br>
+        </div>
+    </form>
+    </div>
+</div>
+{% endblock %}
