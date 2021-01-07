@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block title %} Home Page {% endblock %}
+
+{% block navbar %}  
+    {% include 'includes/_navbar.html' %}
+{% endblock %}
+
+{% block main %}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3">
+            <h1 class="my-4">{{ header }}</h1>
+            <div class="list-group">
+                <a href="/tops" class="list-group-item {{'active' if category == 'tops'}}">Tops</a>
+                <a href="/dress" class="list-group-item {{'active' if category == 'dress'}}">Dress</a>
+                <a href="/handbags" class="list-group-item {{'active' if category == 'handbags'}}">Handbags</a>
+                <a href="/shoes" class="list-group-item {{'active' if category == 'shoes'}}">Shoes</a>
+                <a href="/sweaters" class="list-group-item {{'active' if category == 'sweaters'}}">Sweaters</a>
+            </div>
+        </div>
+        <div class="col-lg-9">
+            {% include 'includes/_flashmsg.html' %}
+            {% include 'includes/_carrousel.html' %}
+
+            <div class="row">
+                {% if products %}
+                    {% for product in products %}
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4">
+                        <div class="card h-100 product-card">
+                            <a href="/dress?view={{product.pid}}"><img class="card-img-top w-100 h-100" src="static/image/product/{{product.category}}/{{product.picture}}" alt="Product"></a>
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <a href="/{{category}}?view={{product.pid}}">{{ product.pname }}</a>
+                                </h5>
+                                <h4>${{product.price}}</h4>
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-muted"></small>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block footer %}
+    {% include 'includes/_footer.html' %}
+{% endblock %}

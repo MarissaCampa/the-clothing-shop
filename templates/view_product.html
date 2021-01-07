@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+
+{% block title %} Home Page {% endblock %}
+
+{% block navbar %}  
+    {% include 'includes/_navbar.html' %}
+{% endblock %}
+
+{% block main %}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3">
+            <h1 class="my-4">Product Info</h1>
+            <div class="list-group">
+                <a href="/tops" class="list-group-item">Tops</a>
+                <a href="/dress" class="list-group-item">Dress</a>
+                <a href="/handbags" class="list-group-item">Handbags</a>
+                <a href="/shoes" class="list-group-item">Shoes</a>
+                <a href="/sweaters" class="list-group-item">Sweaters</a>
+            </div>
+        </div>
+        <div class="col-lg-9">
+            <div class="row">
+                {% for product in product_view %}
+                <div class="col-lg-6">
+                    <div class="card mt-4">
+                        <img class="card-img-top img-fluid"
+                             src="static/image/product/{{product.category}}/{{product.picture}}" alt="">
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="card card-outline-secondary my-4">
+                        <div class="card-header">
+                            Product Details
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">{{product.pName}}</h3>
+                            <h4>${{product.price}}</h4>
+                            <p class="card-text">{{ product.description}}</p>
+                            <a href="/{{product.category}}?order={{product.pid}}" class="btn btn-success">Order Now</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+<!--             {% if x == '' %}
+            <h3 class="mt-5 mb-4">No similar product found</h3  >
+            {% else%}
+            <h2 class="mb-4">Similar product for you:</h2>
+            <div class="row">
+                {% for product in x[0] %}
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="card mb-4">
+                        <a href="/{{product.category}}?view={{product.id}}">
+                            <div class="card-img-top id_{{product.id}}"
+                                 style="background: url('static/image/product/{{product.category}}/{{product.picture}}'); background-repeat:no-repeat; background-size: cover; height:200px;width:100% "></div>
+                        </a>
+                        <div class="card-body">
+                            <h5><a class="card-title" href="/{{product.category}}?view={{product.id}}">{{ product.pName}}</a></h5>
+                            <h4>৳{{product.price}}</h4>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+         </div>     -->
+    </div>
+</div>
+{% endblock %}
+
+{% block footer %}
+    {% include 'includes/_footer.html' %}
+{% endblock %}

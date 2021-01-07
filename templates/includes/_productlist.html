@@ -1,0 +1,19 @@
+{% if products %}
+	{% for product in products %}
+		{% if product and product.category == category %}
+		<div class="col-lg-3 col-md-4 col-sm-6">
+		    <div class="card mb-4">
+		        <a href="/{{product.category}}?view={{product.pid}}">
+		            <img class="card-img-top w-100 h-100" src="static/image/product/{{product.category}}/{{product.picture}}" alt="Product">
+		        </a>
+		        <div class="card-body">
+		            <h5><a class="card-title" href="/{{product.category}}?view={{product.pid}}">{{product.pname}}</a></h5>
+		            <h4>${{product.price}}</h4>
+		            <span class="text-warning"></span>
+		        </div>
+			</div>
+		</div>
+		{% endif %}
+	{% endfor %}
+{% endif %}
+
