@@ -1,7 +1,7 @@
 ## The Clothing Shop
 
 An online shop for women's clothes using Flask-Python, HTML, CSS and JavaScript. 
-This is the final project for CS50's Introduction to Computer Science (2020).
+This is the final project for Harvard CS50 Introduction to Computer Science (2020).
 
 Video Explanation - [VIDEO](https://youtu.be/pbAGsbc6VTk)
 
