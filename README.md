@@ -39,7 +39,7 @@ Video Explanation - [VIDEO](https://youtu.be/pbAGsbc6VTk)
 
 
 #### About Me
-My name is Marissa Campa, from Reynosa, Mexico.
+My name is Marissa Campa, and I'm a Mechatronics Engineer with a Masters in Automation and Control.
 
 My e-mail is (marissag.campa@gmail.com) and my [LinkedIn Profile](https://www.linkedin.com/in/marissa-campa/)
 
