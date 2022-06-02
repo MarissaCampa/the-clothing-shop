@@ -1,12 +1,14 @@
-## The Clothing Shop
+# The Clothing Shop
 
+## 🗒️ Summary
 An online shop for women's clothes using Flask-Python, HTML, CSS and JavaScript. 
 This is the final project for Harvard CS50 Introduction to Computer Science (2020).
 
-Video Explanation - [VIDEO](https://youtu.be/pbAGsbc6VTk)
+https://user-images.githubusercontent.com/3021010/171731607-74c60cce-5401-4355-aab5-4d496d9422aa.mp4
 
 
-#### Features
+
+## ⭐ Features
 
 1. Home page.
 2. Register/login user.
@@ -18,7 +20,7 @@ Video Explanation - [VIDEO](https://youtu.be/pbAGsbc6VTk)
 8. Add Product feature for the Admin.
 
 
-#### Files & Directories
+## 🗂️ Files & Directories
 
 - `Main Directory`
 
@@ -38,9 +40,9 @@ Video Explanation - [VIDEO](https://youtu.be/pbAGsbc6VTk)
 
 
 
-#### About Me
+## 👋 About Me
 My name is Marissa Campa, and I'm a Mechatronics Engineer with a Masters in Automation and Control.
 
-My e-mail is (marissag.campa@gmail.com) and my [LinkedIn Profile](https://www.linkedin.com/in/marissa-campa/)
+You can reach me on &nbsp; [![Linkedin Badge](https://img.shields.io/badge/-marissa-blue?style=flat&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/marissa-campa/) &nbsp; or &nbsp; [![Gmail Badge](https://img.shields.io/badge/-marissag.campa@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:marissag.campa@gmail.com)](mailto:marissag.campa@gmail.com)
 
 
